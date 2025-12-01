@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Link from "next/link";
 
@@ -13,15 +15,15 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-gray-950 text-white px-4 py-3 fixed top-0 left-0 z-50 shadow">
+    <nav className="w-full bg-gray-950 text-white px-4 py-3 fixed top-0 left-0 z-50 shadow"> 
       <div className="max-w-5xl mx-auto flex items-center justify-between">
-        {/* Logo/Brand */}
+        {/* Logo/Brand */} 
         <div className="font-bold text-lg tracking-wider">
           Adam Portfolio
         </div>
 
-        {/* Menu Desktop */}
-        <div className="hidden md:flex gap-8">
+        {/* Menu Desktop */} 
+        <div className="hidden md:flex gap-8"> 
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
@@ -33,7 +35,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Hamburger Button */}
+        {/* Hamburger Button */} 
         <button
           className="md:hidden"
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -50,9 +52,9 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu */} 
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-gray-950 border-t border-slate-800 flex flex-col gap-2 p-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-gray-950 border-t border-slate-800 flex flex-col gap-2 p-4"> 
           {navLinks.map((link) => (
             <Link
               key={link.name}
