@@ -3,7 +3,7 @@ import { PageWrapper } from "@/components/page-wrapper";
 import { Button } from "@/components/ui/button";
 import { TechMarquee } from "@/components/tech-marquee";
 import Link from "next/link";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/navbar"; // Satu kali saja, di paling atas!
 
 export const metadata: Metadata = {
   title: "Home",
@@ -29,13 +29,10 @@ const highlightCards = [
   }
 ];
 
-import Navbar from "@/components/navbar"; // tambahkan ini di paling atas
-// Import lain tetap seperti aslinya...
-
 export default function HomePage() {
   return (
     <>
-      <Navbar /> {/* tambahkan ini sebelum PageWrapper */}
+      <Navbar />
       <PageWrapper>
         <section className="grid gap-10 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
           <div className="space-y-6">
@@ -119,5 +116,3 @@ export default function HomePage() {
     </>
   );
 }
-
-
