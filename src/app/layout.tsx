@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -75,6 +76,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </body>
     </html>
   );
+  export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="id" suppressHydrationWarning>
+      <body className={`${inter.variable} page-shell`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          <div className="page-grid">
+            <header className="mb-8 flex items-center justify-between">
+              <SiteNav />
+              <ThemeToggle />
+            </header>
+            {children}
+          </div>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
 }
 
 
