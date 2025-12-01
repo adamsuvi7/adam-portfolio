@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
+// 👇 Baris ini ditambahkan untuk memperbaiki error "Cannot find name 'Metadata'"
+import type { Metadata } from "next"; 
 import Navbar from "@/components/navbar";
 import { SiteNav } from "@/components/site-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -56,4 +58,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
+// ... (Metadata dan impor di atas)
 
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="id" suppressHydrationWarning className={inter.variable}> {/* 👈 Font class dipindah ke sini */}
+      <body className="page-shell"> {/* 👈 Hanya class layout yang tersisa */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          <div className="page-grid">
+            <header className="mb-8 flex items-center justify-between">
+              <SiteNav />
+              <ThemeToggle />
+            </header>
+            {children}
+          </div>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
